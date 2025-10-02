@@ -4,7 +4,7 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /healthz
+    healthCheckPath: /
     disk:
       name: n8n-data
       mountPath: /home/node/.n8n
@@ -17,7 +17,7 @@ services:
       - key: N8N_BASIC_AUTH_PASSWORD
         value: "GcPpr0j3ct"
       - key: N8N_ENCRYPTION_KEY
-        generateValue: true
+        value: "43403b6f0d017943114ff5057e6fa53948e4ecd362bbb268a4f5d058cccbe170"
       - key: N8N_HOST
         value: "0.0.0.0"
       - key: N8N_PORT
