@@ -1,10 +1,11 @@
 FROM n8nio/n8n:latest
 
-# Render akan kasih PORT env var
+# Listen di semua interface
 ENV N8N_HOST=0.0.0.0
-ENV N8N_PORT=${PORT}
 
-# Simpan data N8N
-VOLUME /home/node/.n8n
+# Port default image (tidak wajib sama dengan PORT Render)
+EXPOSE 5678
 
-CMD ["n8n"]
+# Pastikan N8N_PORT mengikuti PORT dari Render saat start
+# (jika Render tidak set, fallback ke 5678)
+CMD ["bash","-lc","export N8N_PORT=${PORT:-5678}; n8n"]
