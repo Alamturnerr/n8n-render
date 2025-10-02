@@ -20,5 +20,3 @@ services:
         value: "43403b6f0d017943114ff5057e6fa53948e4ecd362bbb268a4f5d058cccbe170"
       - key: N8N_HOST
         value: "0.0.0.0"
-      - key: N8N_PORT
-        value: "${PORT}"
