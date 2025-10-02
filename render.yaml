@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: n8n-on-render
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 2
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "gcpproject"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "GcPpr0j3ct"
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "${PORT}"
